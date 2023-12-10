@@ -2,16 +2,18 @@
 require_once "config.php";
 
 
-function user_register($post) {
+function user_register($post)
+{
     extract($_POST);
     $errors = [];
+    $year = date('Y');
 
     if (!empty($fullname)) {
         $fullname = sanitize($fullname);
     } else {
         $errors[] = "Enter fullname!";
     }
-    
+
     if (!empty($username)) {
         $username = sanitize($username);
     } else {
@@ -23,31 +25,31 @@ function user_register($post) {
     } else {
         $errors[] = "Enter phone number!";
     }
-    
+
     if (!empty($email)) {
         $email = sanitize($email);
     } else {
         $errors[] = "Enter email!";
     }
-    
+
     if (!empty($address)) {
         $address = sanitize($address);
     } else {
         $errors[] = "Enter address!";
     }
-    
+
     if (!empty($dob)) {
         $dob = sanitize($dob);
     } else {
         $errors[] = "Enter date of birth!";
     }
-    
+
     if (!empty($acc_type)) {
         $acc_type = sanitize($acc_type);
     } else {
         $errors[] = "Enter account type!";
     }
-    
+
     if (!empty($password)) {
         $tmp_password = sanitize($password);
     } else {
@@ -59,7 +61,7 @@ function user_register($post) {
     } else {
         $errors[] = "Confirm password!";
     }
-    
+
     if (!isset($terms)) {
         $errors[] = "Confirm password!";
     }
@@ -83,51 +85,76 @@ function user_register($post) {
         $result = validateQuery($sql);
         if ($result === true) {
 
-                $message = "
-                <html>
+            $message = "
+                <html lang='en'>
                 <head>
-                    <title>Title</title>
+                    <meta charset='UTF-8'>
+                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                    <title>Mail for Vertexphoenix</title>
+                    <script src='https://cdn.tailwindcss.com'></script>
                 </head>
                 <body>
-                    
-                        <div style='background: #452121; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; font-family: sans-serif;'>
-                        <img src='https://royalunionpro.com/img/logo/Logo@2x.png' width='150' class='rounded' alt='dd'> <br>
-                
-                            <h2 style='color: #fff !important'>Hello,</h2>
-                            <h3 style='color: #fff !important'>Welcome to Vertexphoenix. The bank that serves all customers equally on a daily basis</h3> 
-                            <i>Your details are as follows:</i> <hr>
+                    <main class='w-full h-screen flex justify-center items-center flex-col p-5'>
+
+                        <section class='w-96 bg-gray-50 shadow-lg h-max rounded-2xl border-4 border-white flex flex-col'>
+                            <div class='bg-white w-full flex justify-center p-4'>
+                                <img src='./assets/images/resources/ogg.png' alt='Vertexphoenix Logo' width='180'>
+                            </div>
                             
-                
-                            <table style='width: 100%; padding-top: 10px;' border='1'>
-                                <tr>
-                                    <th style='padding: 7px;'>Account number</th>
-                                    <td>$account_number</td>
-                                </tr>
-                                <tr>
-                                    <th style='padding: 7px;'>Account Pin</th>
-                                    <td>$account_pin</td>
-                                </tr>
-                                <tr>
-                                    <th style='padding: 7px;'>Account COT</th>
-                                    <td>$cot</td>
-                                </tr>
-                                <tr>
-                                    <th style='padding: 7px;'>Account IMF</th>
-                                    <td>$imf</td>
-                                </tr>
-                                <tr>
-                                    <th style='padding: 7px;'>Account Type</th>
-                                    <td>$acc_type</td>
-                                </tr>
-                            </table>
-                            <p style='color: #fff !important'><i>Thank you for choosing Vertexphoenix</i></p>
-                        </div>
-                
-                 
+                            <div class='body p-5 flex flex-col'>
+                                <h1 class='text-3xl mb-2'>Hello, <b><i>$username</i></b></h1>
+                            <small class='text-red-900'>Welcome to Vertexphoenix.</small>
+
+                            <hr class='my-2'>
+                            <p>Here are your account details:</p>
+                            
+                            <div class='grid grid-cols-2 divide-x justify-center'>
+                                <section class='w-full mt-5 pr-5'>
+                                    <div class='w-full flex items-center gap-1'>
+                                        <p class='text-slate-600'>Account Number</p>
+                                        <div class='w-5 h-5 bg-slate-600 animate-pulse shadow-2xl border-4 rounded-full'></div>
+                                    </div> 
+                                    <p class='font-bold text-slate-600'>$account_number</p>
+                                </section>
+                    
+                                <section class='w-full mt-5 pl-8'>
+                                    <div class='w-full flex items-center gap-1 justify-end'>
+                                        <div class='w-5 h-5 bg-red-600 animate-pulse shadow-2xl border-4 rounded-full'></div>
+                                        <p class='text-slate-600'>Account Pin</p>
+                                    </div> 
+                                    <p class='font-bold text-slate-600 text-right'>$account_pin</p>
+                                </section>
+                            </div>
+
+                            <div class='grid grid-cols-2 divide-x justify-center'>
+                                <section class='w-full mt-5 pr-5'>
+                                    <div class='w-full flex items-center gap-1'>
+                                        <p class='text-slate-600'>Account COT</p>
+                                        <div class='w-5 h-5 bg-indigo-600 animate-pulse shadow-2xl border-4 rounded-full'></div>
+                                    </div> 
+                                    <p class='font-bold text-slate-600'>$cot</p>
+                                </section>
+                    
+                                <section class='w-full mt-5 pl-8'>
+                                    <div class='w-full flex items-center gap-1 justify-end'>
+                                        <div class='w-5 h-5 bg-cyan-600 animate-pulse shadow-2xl border-4 rounded-full'></div>
+                                        <p class='text-slate-600'>Account IMF</p>
+                                    </div> 
+                                    <p class='font-bold text-slate-600 text-right'>$imf</p>
+                                </section>
+                            </div>
+
+                            <hr class='mt-14'>
+                            <small class='text-center mt-4 text-sm italic'>Thank you for choosing Vertexphoenix</small>
+                            <small class='text-center text-gray-500 italic'>&copy; Copyright, $year</small>
+                            </div>
+
+                        </section>
+                    </main> 
                 </body>
                 </html>
                 ";
-                sendEmail($email, "Welcome to Vertexphoenix", $message);
+            sendEmail($email, "Welcome to Vertexphoenix", $message);
             return true;
         } else {
             $errors[] = "Check form inputs";
@@ -135,12 +162,6 @@ function user_register($post) {
     } else {
         return $errors;
     }
-
-
-
-
-
-
 } // end of user registration
 
 // User Login
@@ -176,7 +197,7 @@ function user_login($post)
             $user_id = $result['id'];
             $otp = generateNumber(4);
 
-                $message = "
+            $message = "
                 <html>
                 <head>
                     <title>Login</title>
@@ -211,7 +232,7 @@ function user_login($post)
                     if ($insertOtp) {
                         return true;
                     }
-                }   
+                }
             }
         }
         $errors[] = "Invalid Login Details!";
@@ -219,7 +240,8 @@ function user_login($post)
     return $errors;
 }
 
-function verifyLogin($post) {
+function verifyLogin($post)
+{
     extract($post);
     $errors = [];
     $user_id = $_SESSION['tmpData'];
@@ -249,7 +271,8 @@ function verifyLogin($post) {
     }
 }
 
-function confirmPin($post) {
+function confirmPin($post)
+{
     extract($post);
     $errors = [];
     $user_id = $_SESSION['tmpData'];
@@ -289,7 +312,7 @@ function confirmPin($post) {
                 </body>
                 </html>
                 ";
-                sendEmail($email, "Vertexphoenix Login Notification", $message);
+            sendEmail($email, "Vertexphoenix Login Notification", $message);
             return true;
         } else {
             return "Invaild pin provided";
@@ -299,7 +322,8 @@ function confirmPin($post) {
     }
 }
 
-function cardLogin($post) {
+function cardLogin($post)
+{
     extract($post);
     $errors = [];
 
@@ -343,7 +367,7 @@ function cardLogin($post) {
                     return true;
                 } else {
 
-                    if(empty($validStatus)){
+                    if (empty($validStatus)) {
                         $changeToInvalid = "UPDATE student_cards SET student_id_fk = '$student_id', valid = '1' WHERE card_pin = '$pin'";
                         $invalidQuery = validateQuery($changeToInvalid);
 
@@ -354,17 +378,15 @@ function cardLogin($post) {
                             $invalid = "Invalid card details";
                             return $invalid;
                         }
-                    }else{
+                    } else {
                         $invalid = "This card does not belong to you! Please check for your card";
                         return $invalid;
                     }
-
                 }
             } else {
                 $invalid = "Invalid card details";
                 return $invalid;
             }
-            
         } else {
             $invalid = "Invalid card details";
             return $invalid;
@@ -431,7 +453,8 @@ function updateStudentProfile($post)
     }
 }
 
-function make_transfer($post, $user_id) {
+function make_transfer($post, $user_id)
+{
     extract($post);
     $errors = [];
     $err_flag = false;
@@ -449,14 +472,14 @@ function make_transfer($post, $user_id) {
         $err_flag = true;
         $errors[] = "Enter routing number!";
     }
-    
+
     if (!empty($amount)) {
         $amount = sanitize($amount);
     } else {
         $err_flag = true;
         $errors[] = "Enter account number!";
     }
-    
+
     if (!empty($desc)) {
         $desc = ALLOW_SAFE_SYMBOLS(sanitize($desc));
     } else {
@@ -540,7 +563,7 @@ function make_transfer($post, $user_id) {
                 </html>
                 ";
 
-                $rec_message = "
+                    $rec_message = "
                 <html>
                 <head>
                     <title>Title</title>
@@ -581,8 +604,8 @@ function make_transfer($post, $user_id) {
                 </body>
                 </html>
                 ";
-                sendEmail($email, "Vertexphoenix Alert", $message);
-                sendEmail($receiver_email, "Vertexphoenix Alert", $rec_message);
+                    sendEmail($email, "Vertexphoenix Alert", $message);
+                    sendEmail($receiver_email, "Vertexphoenix Alert", $rec_message);
                     return true;
                 }
             } else {
@@ -634,7 +657,8 @@ function make_transfer($post, $user_id) {
     }
 }
 
-function wire_transfer($post, $user_id) {
+function wire_transfer($post, $user_id)
+{
     extract($post);
     $errors = [];
     $err_flag = false;
@@ -645,14 +669,14 @@ function wire_transfer($post, $user_id) {
         $err_flag = true;
         $errors[] = "Enter account number!";
     }
-    
+
     if (!empty($acc_name)) {
         $acc_name = sanitize($acc_name);
     } else {
         $err_flag = true;
         $errors[] = "Enter account name!";
     }
-    
+
     if (!empty($bank_name)) {
         $bank_name = sanitize($bank_name);
     } else {
@@ -666,28 +690,28 @@ function wire_transfer($post, $user_id) {
         $err_flag = true;
         $errors[] = "Enter swift code!";
     }
-    
+
     if (!empty($type)) {
         $type = sanitize($type);
     } else {
         $err_flag = true;
         $errors[] = "Enter account type!";
     }
-    
+
     if (!empty($amount)) {
         $amount = sanitize($amount);
     } else {
         $err_flag = true;
         $errors[] = "Enter account number!";
     }
-    
+
     if (!empty($desc)) {
         $desc = ALLOW_SAFE_SYMBOLS(sanitize($desc));
     } else {
         $err_flag = true;
         $errors[] = "Enter description!";
     }
-    
+
 
     if ($err_flag === false) {
         $sql1 = "SELECT * FROM users WHERE id = $user_id";
@@ -705,10 +729,9 @@ function wire_transfer($post, $user_id) {
                     return true;
                 }
             } else {
-                $balance_err = "Insufficient Balance";  
+                $balance_err = "Insufficient Balance";
                 return $balance_err;
             }
-            
         } else {
             $err_user = "Error from getting users";
             return $err_user;
@@ -719,7 +742,8 @@ function wire_transfer($post, $user_id) {
 }
 
 
-function credit_account($post, $user_id) {
+function credit_account($post, $user_id)
+{
     extract($post);
     $err_flag = false;
     $errors = [];
@@ -754,14 +778,15 @@ function credit_account($post, $user_id) {
                 } else {
                     $err = "Error! try again";
                 }
-            } 
+            }
         }
     } else {
         return $errors;
     }
 }
 
-function Transactions($user_id, $status) {
+function Transactions($user_id, $status)
+{
     $sql = "SELECT * FROM transactions WHERE user_id = $user_id AND approved = $status ORDER BY id DESC";
     $result = returnQuery($sql);
 
@@ -772,7 +797,8 @@ function Transactions($user_id, $status) {
     }
 }
 
-function updateProfileImage($post, $user_id) {
+function updateProfileImage($post, $user_id)
+{
     extract($post);
     $errors = [];
 
@@ -798,7 +824,8 @@ function updateProfileImage($post, $user_id) {
     }
 }
 
-function sendTicket($post) { 
+function sendTicket($post)
+{
     extract($post);
     $errors = [];
 
@@ -807,8 +834,8 @@ function sendTicket($post) {
     } else {
         $errors[] = "Please enter ticket subject";
     }
-    
-    
+
+
     if (!empty($query)) {
         $query = ALLOW_SAFE_SYMBOLS(sanitize($query));
     } else {
@@ -828,6 +855,4 @@ function sendTicket($post) {
     } else {
         return $errors;
     }
-
-
 }

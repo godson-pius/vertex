@@ -3,7 +3,7 @@
     <div class="row font-size-sm">
      
       <div class="col-sm-6 order-sm-1 text-center text-sm-left">
-        <a class="font-w600" href="https://horizontrustco.com" target="_blank">Vertexphoenix</a> &copy; <span data-toggle="year-copy"></span>
+        <a class="font-w600" href="https://vertexphoenix.com" target="_blank">Vertexphoenix</a> &copy; <span data-toggle="year-copy"></span>
 
     </div>
   </div>

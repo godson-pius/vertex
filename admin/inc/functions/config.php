@@ -7,9 +7,9 @@ session_start();
 // define("DBNAME", "vertex");
 
 define("HOST", "localhost");
-define("USER", "anamcrke_vertex");
+define("USER", "vertvcwc_vertexuser");
 define("PASSWORD", "vertexpassword");
-define("DBNAME", "anamcrke_vertex");
+define("DBNAME", "vertvcwc_vertex");
 
 $link = mysqli_connect(HOST, USER, PASSWORD, DBNAME);
 

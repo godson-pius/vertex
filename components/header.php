@@ -6,17 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vertexphoenix - Better Future</title>
     <!-- Favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/resources/logo-2.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/footer/footer-logo-1.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/footer/footer-logo-1.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/footer/footer-logo-1.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
     <meta name="description" content="Vertexphoenix is a universal bank, which is operational from any part of the world" />
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/vendors/animate/animate.min.css" />
     <link rel="stylesheet" href="assets/vendors/animate/custom-animate.css" />
@@ -48,6 +45,14 @@
     <!-- Template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="Vertexphoenix">
+    <meta property="og:site_name" content="Vertexphoenix">
+    <meta property="og:description" content="Vertexphoenix is a universal bank, which is operational from any part of the world">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="vertexphoenix.com">
+    <meta property="og:image" content="assets/images/footer/footer-logo-1.png">
 
 </head>
 

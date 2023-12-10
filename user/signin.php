@@ -1,67 +1,68 @@
 <?php
-    require_once '../admin/inc/functions/config.php';
+require_once '../admin/inc/functions/config.php';
 
-    // echo generateNumber(2);
+// echo generateNumber(2);
 
-    if (isset($_POST['submit'])) {
-        $response = user_login($_POST);
+if (isset($_POST['submit'])) {
+    $response = user_login($_POST);
 
-        if ($response === true) {
-            redirect_to("validate-login");
-        } else {
-            $errors = $response;
-            if (is_array($errors)) {
-                foreach ($errors as $err) {
-                    echo "<script>alert('$err')</script>";
-                }
-            } else {
-                echo "<script>alert('$errors')</script>";
+    if ($response === true) {
+        redirect_to("validate-login");
+    } else {
+        $errors = $response;
+        if (is_array($errors)) {
+            foreach ($errors as $err) {
+                echo "<script>alert('$err')</script>";
             }
-            
+        } else {
+            echo "<script>alert('$errors')</script>";
         }
     }
+}
 ?>
 
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-        <title>Sign In | Vertexphoenix</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-        <meta name="description" content="Sign In | Vertexphoenix is a universal bank, which is operational from any part of the world">
-        <meta name="author" content="Vertexphoenix">
-        <meta name="robots" content="noindex, nofollow">
+    <title>Sign In | Vertexphoenix</title>
 
-        <!-- Open Graph Meta -->
-        <meta property="og:title" content="Sign In | Vertexphoenix Bank">
-        <meta property="og:site_name" content="Vertexphoenix">
-        <meta property="og:description" content="Sign In | Vertexphoenix Bank">
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="">
-        <meta property="og:image" content="">
+    <meta name="description" content="Sign In | Vertexphoenix is a universal bank, which is operational from any part of the world">
+    <meta name="author" content="Vertexphoenix">
+    <meta name="robots" content="noindex, nofollow">
 
-        <!-- Icons -->
-        <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-        <link rel="shortcut icon" href="../assets/images/footer/footer-logo-1.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/footer/footer-logo-1.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/footer/footer-logo-1.png">
-        <!-- END Icons -->
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="User Dashboard">
+    <meta property="og:site_name" content="Vertexphoenix">
+    <meta property="og:description" content="Sign In - Vertexphoenix Dashboard">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="vertexphoenix.com/admin">
+    <meta property="og:image" content="../assets/images/be-logo.png">
 
-        <!-- Stylesheets -->
-        <!-- Fonts and Dashmix framework -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-        <link rel="stylesheet" id="css-main" href="../admin/assets/css/dashmix.min.css">
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="../assets/images/be-logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/be-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/be-logo.png">
+    <!-- END Icons -->
 
-        <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-        <!-- <link rel="stylesheet" id="css-theme" href="../admin/assets/css/themes/xwork.min.css"> -->
-        <!-- END Stylesheets -->
-    </head>
-    <body>
-        <!-- Page Container -->
-        <!--
+    <!-- Stylesheets -->
+    <!-- Fonts and Dashmix framework -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" id="css-main" href="../admin/assets/css/dashmix.min.css">
+
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="../admin/assets/css/themes/xwork.min.css"> -->
+    <!-- END Stylesheets -->
+</head>
+
+<body>
+    <!-- Page Container -->
+    <!--
             Available classes for #page-container:
 
         GENERIC
@@ -109,85 +110,85 @@
             'main-content-boxed'                        Full width Main Content with a specific maximum width (screen width > 1200px)
             'main-content-narrow'                       Full width Main Content with a percentage width (screen width > 1200px)
         -->
-        <div id="page-container">
+    <div id="page-container">
 
-            <!-- Main Container -->
-            <main id="main-container">
+        <!-- Main Container -->
+        <main id="main-container">
 
-                <!-- Page Content -->
-                <div class="bg-image" style="background-image: url('../admin/assets/media/photos/jason-grove-B4kmaRADNAc-unsplash.jpg'); object-fit: cover !important;">
-                    <div class="row no-gutters bg-primary-op">
-                        <!-- Main Section -->
-                        <div class="hero-static col-md-6 d-flex align-items-center bg-white">
-                            <div class="p-3 w-100">
-                                <!-- Header -->
-                                <div class="mb-3 text-center">
-                                    
-                                    <a class="font-w700 font-size-h1" href="../">
-                                        <!-- <span class="text-dark"></span><span class="text-primary">ON</span> -->
-                                        <img src="../assets/images/be-logo.png" width="250" alt=""> <br>
-                                    </a>
-                                    <!-- <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p> -->
-                                </div>
-                                <!-- END Header -->
+            <!-- Page Content -->
+            <div class="bg-image" style="background-image: url('../admin/assets/media/photos/jason-grove-B4kmaRADNAc-unsplash.jpg'); object-fit: cover !important;">
+                <div class="row no-gutters bg-primary-op">
+                    <!-- Main Section -->
+                    <div class="hero-static col-md-6 d-flex align-items-center bg-white">
+                        <div class="p-3 w-100">
+                            <!-- Header -->
+                            <div class="mb-3 text-center">
 
-                                <!-- Sign In Form -->
-                                <!-- jQuery Validation (.js-validation-signin class is initialized in js/pages/op_auth_signin.min.js which was auto compiled from _js/pages/op_auth_signin.js) -->
-                                <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                                <div class="row no-gutters justify-content-center">
-                                    <div class="col-sm-8 col-xl-6">
-                                        <form action="" method="POST">
-                                            <div class="py-3">
-                                                <div class="form-group">
-                                                    <input type="number" class="form-control form-control-alt" name="accNum" placeholder="Account Number">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="password" class="form-control form-control-alt" name="password" placeholder="Password">
-                                                </div>
+                                <a class="font-w700 font-size-h1" href="../">
+                                    <!-- <span class="text-dark"></span><span class="text-primary">ON</span> -->
+                                    <img src="../assets/images/be-logo.png" width="250" alt=""> <br>
+                                </a>
+                                <!-- <p class="text-uppercase font-w700 font-size-sm text-muted">Sign In</p> -->
+                            </div>
+                            <!-- END Header -->
+
+                            <!-- Sign In Form -->
+                            <!-- jQuery Validation (.js-validation-signin class is initialized in js/pages/op_auth_signin.min.js which was auto compiled from _js/pages/op_auth_signin.js) -->
+                            <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                            <div class="row no-gutters justify-content-center">
+                                <div class="col-sm-8 col-xl-6">
+                                    <form action="" method="POST">
+                                        <div class="py-3">
+                                            <div class="form-group">
+                                                <input type="number" class="form-control form-control-alt" name="accNum" placeholder="Account Number">
                                             </div>
                                             <div class="form-group">
-                                                <button type="submit" name="submit" class="btn btn-block btn-hero-lg btn-hero-primary">
-                                                    <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
-                                                </button>
-                                                <p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">
-                                                    <!-- <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="op_auth_reminder.html">
+                                                <input type="password" class="form-control form-control-alt" name="password" placeholder="Password">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" name="submit" class="btn btn-block btn-hero-lg btn-hero-primary">
+                                                <i class="fa fa-fw fa-sign-in-alt mr-1"></i> Sign In
+                                            </button>
+                                            <p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">
+                                                <!-- <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="op_auth_reminder.html">
                                                         <i class="fa fa-exclamation-triangle text-muted mr-1"></i> Forgot password
                                                     </a> -->
-                                                    <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="signup">
-                                                        <i class="fa fa-plus text-muted mr-1"></i> New Account
-                                                    </a>
-                                                </p>
-                                            </div>
-                                        </form>
-                                    </div>
+                                                <a class="btn btn-sm btn-light d-block d-lg-inline-block mb-1" href="signup">
+                                                    <i class="fa fa-plus text-muted mr-1"></i> New Account
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </form>
                                 </div>
-                                <!-- END Sign In Form -->
                             </div>
+                            <!-- END Sign In Form -->
                         </div>
-                        <!-- END Main Section -->
-
-                        <!-- Meta Info Section -->
-                        <div class="hero-static col-md-6 d-none d-md-flex align-items-md-center justify-content-md-center text-md-center">
-                            <div class="p-3">
-                                <p class="display-4 font-w700 text-white mb-3">
-                                Welcome to Vertexphoenix 
-                                </p>
-                                <p class="text-white">Building a better life with banking</p>
-                                <p class="font-size-lg font-w600 text-white-75 mb-0">
-                                    Copyright &copy; <span data-toggle="year-copy"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- END Meta Info Section -->
                     </div>
-                </div>
-                <!-- END Page Content -->
-            </main>
-            <!-- END Main Container -->
-        </div>
-        <!-- END Page Container -->
+                    <!-- END Main Section -->
 
-        <!--
+                    <!-- Meta Info Section -->
+                    <div class="hero-static col-md-6 d-none d-md-flex align-items-md-center justify-content-md-center text-md-center">
+                        <div class="p-3">
+                            <p class="display-4 font-w700 text-white mb-3">
+                                Welcome to Vertexphoenix
+                            </p>
+                            <p class="text-white">Building a better life with banking</p>
+                            <p class="font-size-lg font-w600 text-white-75 mb-0">
+                                Copyright &copy; <span data-toggle="year-copy"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- END Meta Info Section -->
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+
+    <!--
             Dashmix JS Core
 
             Vital libraries and plugins used in all pages. You can choose to not include this file if you would like
@@ -203,28 +204,29 @@
             ../admin/assets/js/core/jquery.appear.min.js
             ../admin/assets/js/core/js.cookie.min.js
         -->
-        <script src="../admin/assets/js/dashmix.core.min.js"></script>
+    <script src="../admin/assets/js/dashmix.core.min.js"></script>
 
-        <!--
+    <!--
             Dashmix JS
 
             Custom functionality including Blocks/Layout API as well as other vital and optional helpers
             webpack is putting everything together at ../admin/assets/_js/main/app.js
         -->
-        <script src="../admin/assets/js/dashmix.app.min.js"></script>
+    <script src="../admin/assets/js/dashmix.app.min.js"></script>
 
-        <!-- Page JS Plugins -->
-        <script src="../admin/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <!-- Page JS Plugins -->
+    <script src="../admin/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
 
-        <!-- Page JS Code -->
-        <script src="../admin/assets/js/pages/op_auth_signin.min.js"></script>
-    </body>
+    <!-- Page JS Code -->
+    <script src="../admin/assets/js/pages/op_auth_signin.min.js"></script>
+</body>
+
 </html>
 
 <?php
-    if (isset($_GET['msg'])) {
-        $msg = $_GET['msg'];
+if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
     echo "<script>alert('$msg')</script>";
-    }
+}
 
 ?>

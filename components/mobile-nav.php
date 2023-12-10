@@ -6,7 +6,7 @@
         </span>
         <div class="logo-box">
             <a href="index.html" aria-label="logo image">
-                <img src="assets/images/resources/mobile-nav-logo.png" alt="" />
+                <img src="assets/images/resources/logo-1.png" alt="" />
             </a>
         </div>
         <div class="mobile-nav__container"></div>

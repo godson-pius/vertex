@@ -33,14 +33,14 @@ foreach ($admin_details as $admin) {
     <meta property="og:site_name" content="Vertexphoenix">
     <meta property="og:description" content="Vertexphoenix Dashboard">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
-    <meta property="og:image" content="">
+    <meta property="og:url" content="vertexphoenix.com/admin">
+    <meta property="og:image" content="../assets/images/be-logo.png">
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="../assets/images/be-logo.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/images/be-logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/be-logo.png">
     <!-- END Icons -->
 
     <!-- Stylesheets -->

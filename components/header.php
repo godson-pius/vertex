@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vertexphoenix - Better Future</title>
     <!-- Favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/footer/footer-logo-1.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/footer/footer-logo-1.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/footer/footer-logo-1.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/resources/ogg.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/resources/ogg.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/resources/ogg.png" />
     <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
     <meta name="description" content="Vertexphoenix is a universal bank, which is operational from any part of the world" />
     <!-- fonts -->
@@ -52,7 +52,7 @@
     <meta property="og:description" content="Vertexphoenix is a universal bank, which is operational from any part of the world">
     <meta property="og:type" content="website">
     <meta property="og:url" content="vertexphoenix.com">
-    <meta property="og:image" content="assets/images/footer/footer-logo-1.png">
+    <meta property="og:image" content="assets/images/resources/ogg.png">
 
 </head>
 

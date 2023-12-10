@@ -13,12 +13,12 @@
         <ul class="mobile-nav__contact list-unstyled">
             <li>
                 <i class="fa fa-envelope"></i>
-                <a href="mailto:info@example.com">info@example.com</a>
+                <a href="mailto:info@example.com">info@vertexphoenix.com</a>
             </li>
-            <li>
+            <!-- <li>
                 <i class="fa fa-phone-alt"></i>
                 <a href="tel:123456789">444 000 777 66</a>
-            </li>
+            </li> -->
         </ul>
         <div class="mobile-nav__social">
             <a href="#" class="fab fa-twitter"></a>

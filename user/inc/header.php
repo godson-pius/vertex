@@ -178,7 +178,7 @@ if ($title == "transfer" && $access == 0) {
                 <div class="content-header justify-content-lg-center bg-header-dark">
                     <!-- Logo -->
                     <a class="font-w600 text-white tracking-wide" href="index.html">
-                        Royal<span class="opacity-75"> Union</span>
+                        Vertex<span class="opacity-75"> Phoenix</span>
                         <span class="font-w400">Banking</span>
                     </a>
                     <!-- END Logo -->

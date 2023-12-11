@@ -4,65 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mail for Vertexphoenix</title>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <main class="w-full h-screen flex justify-center items-center flex-col p-5">
+    <main
+        style="width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px;">
 
-        <section class="w-96 bg-gray-50 shadow-lg h-max rounded-2xl border-4 border-white flex flex-col">
-            <div class="bg-white w-full flex justify-center p-4">
+        <section
+            style="width: 26rem; background-color: #f9fafb; border-width: 4px; display: flex; flex-direction: column; height: max-content; border-radius: 1rem; border-color: white; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important">
+            <div style="background-color: white; width: 100%; display: flex; justify-content: center; padding: 1rem;">
                 <img src="./assets/images/resources/ogg.png" alt="Vertexphoenix Logo" width="180">
             </div>
-            
-            <div class="body p-5 flex flex-col">
-                <h1 class="text-3xl mb-2">Hello, <b><i>John Doe</i></b></h1>
-            <small class="text-red-900">Welcome to Vertexphoenix.</small>
 
-            <hr class="my-2">
-            <p>Here are your account details:</p>
-            
-            <div class="grid grid-cols-2 divide-x justify-center">
-                <section class="w-full mt-5 pr-5">
-                    <div class="w-full flex items-center gap-1">
-                        <p class="text-slate-600">Account Number</p>
-                        <div class="w-5 h-5 bg-slate-600 animate-pulse shadow-2xl border-4 rounded-full"></div>
-                    </div> 
-                    <p class="font-bold text-slate-600">9923377828</p>
-                </section>
-    
-                <section class="w-full mt-5 pl-8">
-                    <div class="w-full flex items-center gap-1 justify-end">
-                        <div class="w-5 h-5 bg-red-600 animate-pulse shadow-2xl border-4 rounded-full"></div>
-                        <p class="text-slate-600">Account Pin</p>
-                    </div> 
-                    <p class="font-bold text-slate-600 text-right">9923377828</p>
-                </section>
-            </div>
+            <div style="padding: 1.25rem; display: flex; flex-direction: column;">
+                <h1 style="font-size: 1.875rem; line-height: 2.25rem; margin-bottom: 0.5rem;">Hello, <b><i>John
+                            Doe</i></b></h1>
+                <small style="color: #7f1d1d;">Welcome to Vertexphoenix.</small>
 
-            <div class="grid grid-cols-2 divide-x justify-center">
-                <section class="w-full mt-5 pr-5">
-                    <div class="w-full flex items-center gap-1">
-                        <p class="text-slate-600">Account COT</p>
-                        <div class="w-5 h-5 bg-indigo-600 animate-pulse shadow-2xl border-4 rounded-full"></div>
-                    </div> 
-                    <p class="font-bold text-slate-600">9923377828</p>
-                </section>
-    
-                <section class="w-full mt-5 pl-8">
-                    <div class="w-full flex items-center gap-1 justify-end">
-                        <div class="w-5 h-5 bg-cyan-600 animate-pulse shadow-2xl border-4 rounded-full"></div>
-                        <p class="text-slate-600">Account IMF</p>
-                    </div> 
-                    <p class="font-bold text-slate-600 text-right">9923377828</p>
-                </section>
-            </div>
+                <hr style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
 
-            <hr class="mt-14">
-            <small class="text-center mt-4 text-sm italic">Thank you for choosing Vertexphoenix</small>
-            <small class="text-center text-gray-500 italic">&copy; Copyright, 2023</small>
+                <p>Here are your account details:</p>
+
+                <div style="justify-content: center; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));">
+                    <section style="margin-top: 1.25rem; padding-right: 1.25rem; width: 100%;">
+                        <div style="width: 100%; display: flex; align-items: center; gap: 0.25rem;">
+                            <p style="color: #4a586b;">Account Number</p>
+                            <div
+                                style="border-radius: 9999px; width: 1.25rem; height: 1.25rem; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; border-width: 4px; background-color: #4a586b; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;">
+                            </div>
+                        </div>
+                        <p style="font-weight: 700; color: #4a586b;">9923377828</p>
+                    </section>
+
+                    <section style="padding-left: 2rem; margin-top: 1.25rem; width: 100%;">
+                        <div
+                            style="width: 100%; display: flex; align-items: center; gap: 0.25rem; justify-content: end;">
+                            <div
+                                style="border-radius: 9999px; width: 1.25rem; height: 1.25rem; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; border-width: 4px; background-color: #dd2d2d; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;">
+                            </div>
+                            <p style="color: #4a586b;">Account Pin</p>
+                        </div>
+                        <p style="font-weight: 700; color: #4a586b; text-align: right;">9923377828</p>
+                    </section>
+                </div>
+
+                <div style="justify-content: center; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));">
+                    <section style="margin-top: 1.25rem; padding-right: 1.25rem; width: 100%;">
+                        <div style="width: 100%; display: flex; align-items: center; gap: 0.25rem;">
+                            <p style="color: #4a586b;">Account COT</p>
+                            <div
+                                style="border-radius: 9999px; width: 1.25rem; height: 1.25rem; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; border-width: 4px; background-color: #5047e5; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;">
+                            </div>
+                        </div>
+                        <p style="font-weight: 700; color: #4a586b;">9923377828</p>
+                    </section>
+
+                    <section style="padding-left: 2rem; margin-top: 1.25rem; width: 100%;">
+                        <div
+                            style="width: 100%; display: flex; align-items: center; gap: 0.25rem; justify-content: end;">
+                            <div
+                                style="border-radius: 9999px; width: 1.25rem; height: 1.25rem; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; border-width: 4px; background-color: #209bb9; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;">
+                            </div>
+                            <p style="color: #4a586b;">Account IMF</p>
+                        </div>
+                        <p style="font-weight: 700; color: #4a586b; text-align: right;">9923377828</p>
+                    </section>
+                </div>
+
+                <hr style="margin-top: 3.5rem;">
+                <small
+                    style="margin-top: 1rem; text-align: center; font-size: 0.875rem; line-height: 1.25rem; font-style: italic;">Thank
+                    you for choosing Vertexphoenix</small>
+                <small style="text-align: center; font-style: italic; color: #6b7280;">&copy; Copyright, 2023</small>
             </div>
 
         </section>
-    </main> 
+    </main>
 </body>
 </html>

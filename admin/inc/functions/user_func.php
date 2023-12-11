@@ -90,8 +90,8 @@ function user_register($post) {
                 </head>
                 <body>
                     
-                        <div style='background: #f9fafb; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; font-family: sans-serif;'>
-                        <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' width='150' class='rounded' alt='dd'> <br>
+                        <div style='background: #191916; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; font-family: circular;'>
+                        <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' width='170' class='rounded' alt='dd'> <br>
                 
                             <h2 style='color: #fff !important'>Hello, $username</h2>
                             <h3 style='color: #fff !important'>Welcome to Vertexphoenix. The bank that serves all customers equally on a daily basis</h3> 

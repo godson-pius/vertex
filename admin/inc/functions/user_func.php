@@ -85,47 +85,88 @@ function user_register($post) {
 
                 $message = "
                 <html>
-                <head>
-                    <title>Title</title>
-                </head>
-                <body>
-                    
-                        <div style='background: #191916; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; font-family: circular;'>
-                        <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' width='170' class='rounded' alt='dd'> <br>
-                
-                            <h2 style='color: #fff !important'>Hello, $username</h2>
-                            <h3 style='color: #fff !important'>Welcome to Vertexphoenix. The bank that serves all customers equally on a daily basis</h3> 
-                            <i>Your details are as follows:</i> <hr>
-                            
-                
-                            <table style='width: 100%; padding-top: 10px;' border='1'>
-                                <tr>
-                                    <th style='padding: 7px;'>Account number</th>
-                                    <td>$account_number</td>
-                                </tr>
-                                <tr>
-                                    <th style='padding: 7px;'>Account Pin</th>
-                                    <td>$account_pin</td>
-                                </tr>
-                                <tr>
-                                    <th style='padding: 7px;'>Account COT</th>
-                                    <td>$cot</td>
-                                </tr>
-                                <tr>
-                                    <th style='padding: 7px;'>Account IMF</th>
-                                    <td>$imf</td>
-                                </tr>
-                                <tr>
-                                    <th style='padding: 7px;'>Account Type</th>
-                                    <td>$acc_type</td>
-                                </tr>
-                            </table>
-                            <p style='color: #fff !important'><i>Thank you for choosing Vertexphoenix</i></p>
+
+<head>
+    <title>Mail for Vertexphoenix</title>
+</head>
+
+<body>
+    <main style='width: 100%; height: 50px; display: flex; flex-direction: column; padding: 1rem;'>
+
+        <section
+            style='width: 50rem; background-color: #f9fafb; border-width: 4px; display: flex; flex-direction: column; height: max-content; border-radius: 1rem; border-color: white; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;'>
+
+            <div style='background-color: white; width: 100%; display: flex; justify-content: center; padding-top: 1rem; padding-bottom: 1rem;'>
+                <img src='./assets/images/resources/ogg.png' alt='Vertexphoenix Logo' width='180'>
+            </div>
+
+            <div style='padding: 1.25rem; display: flex; flex-direction: column;'>
+                <h1 style='font-size: 1.875rem; line-height: 2.25rem; margin-bottom: 0.5rem;'>Hello, <b><i>John
+                            Doe</i></b></h1>
+                <small style='color: #7f1d1d;'>Welcome to Vertexphoenix.</small>
+
+                <hr style='margin-top: 0.5rem; margin-bottom: 0.5rem;'>
+
+                <p>Here are your account details:</p>
+
+                <div style='justify-content: center; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));'>
+                    <section style='margin-top: 1.25rem; padding-right: 1.25rem; width: 100%;'>
+                        <div style='width: 100%; display: flex; align-items: center; gap: 0.25rem;'>
+                            <p style='color: #4a586b;'>Account Number</p>
+                            <div
+                                style='border-radius: 9999px; width: 1.25rem; height: 1.25rem; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; border-width: 4px; background-color: #4a586b; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;'>
+                            </div>
                         </div>
-                
-                 
-                </body>
-                </html>
+                        <p style='font-weight: 700; color: #4a586b;'>9923377828</p>
+                    </section>
+
+                    <section style='margin-top: 1.25rem; width: 100%;'>
+                        <div
+                            style='width: 100%; display: flex; align-items: center; gap: 0.25rem; justify-content: end;'>
+                            <div
+                                style='border-radius: 9999px; width: 1.25rem; height: 1.25rem; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; border-width: 4px; background-color: #dd2d2d; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;'>
+                            </div>
+                            <p style='color: #4a586b;'>Account Pin</p>
+                        </div>
+                        <p style='font-weight: 700; color: #4a586b; text-align: right;'>9923377828</p>
+                    </section>
+                </div>
+
+                <div style='justify-content: center; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));'>
+                    <section style='margin-top: 1.25rem; padding-right: 1.25rem; width: 100%;'>
+                        <div style='width: 100%; display: flex; align-items: center; gap: 0.25rem;'>
+                            <p style='color: #4a586b;'>Account COT</p>
+                            <div
+                                style='border-radius: 9999px; width: 1.25rem; height: 1.25rem; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; border-width: 4px; background-color: #5047e5; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;'>
+                            </div>
+                        </div>
+                        <p style='font-weight: 700; color: #4a586b;'>9923377828</p>
+                    </section>
+
+                    <section style='margin-top: 1.25rem; width: 100%;'>
+                        <div
+                            style='width: 100%; display: flex; align-items: center; gap: 0.25rem; justify-content: end;'>
+                            <div
+                                style='border-radius: 9999px; width: 1.25rem; height: 1.25rem; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; border-width: 4px; background-color: #209bb9; box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;'>
+                            </div>
+                            <p style='color: #4a586b;'>Account IMF</p>
+                        </div>
+                        <p style='font-weight: 700; color: #4a586b; text-align: right;'>9923377828</p>
+                    </section>
+                </div>
+
+                <hr style='margin-top: 3.5rem;'>
+                <small
+                    style='margin-top: 1rem; text-align: center; font-size: 0.875rem; line-height: 1.25rem; font-style: italic;'>Thank
+                    you for choosing Vertexphoenix</small>
+                <small style='text-align: center; font-style: italic; color: #6b7280;'>&copy; Copyright, 2023</small>
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>
                 ";
                 sendEmail($email, "Welcome to Vertexphoenix", $message);
             return true;
@@ -184,7 +225,7 @@ function user_login($post)
                 <body>
                     <center>
                     <div style='background: #452121; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;'>
-                    <img src='https://royalunionpro.com/img/logo/Logo@2x.png' width='150' style='border-radius: 0.25rem!important' alt='Vertexphoenix'> <br>
+                    <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' width='150' style='border-radius: 0.25rem!important' alt='Vertexphoenix'> <br>
             
                         <h2 style='color: #fff !important'>Dear $userName,</h2>
                         <h3 style='color: #fff !important'>This is your ONE-TIME-PASSWORD</h3> <hr>
@@ -274,7 +315,7 @@ function confirmPin($post) {
                 <body>
                    
                         <div style='background: #452121; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; font-family: sans-serif;'>
-                            <img src='https://royalunionpro.com/img/logo/Logo@2x.png' width='150' class='rounded' alt='dd'> <br>
+                            <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' width='150' class='rounded' alt='dd'> <br>
                             
                             
                             <h2 style='color: #fff !important'>Hello,</h2>
@@ -496,7 +537,7 @@ function make_transfer($post, $user_id) {
                 </head>
                 <body>
                         <div style='background: #452121; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; font-family: sans-serif;'>
-                            <img src='https://royalunionpro.com/img/logo/Logo@2x.png' width='150' class='rounded' alt='dd'> <br>
+                            <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' width='150' class='rounded' alt='dd'> <br>
                 
                             <h2 style='color: #fff !important'>Dear $username,</h2>
                             <h3 style='color: #fff !important'>Your transaction was successful!</h3> 
@@ -547,7 +588,7 @@ function make_transfer($post, $user_id) {
                 </head>
                 <body>
                         <div style='background: #452121; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; font-family: sans-serif;'>
-                            <img src='https://royalunionpro.com/img/logo/Logo@2x.png' width='150' class='rounded' alt='dd'> <br>
+                            <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' width='150' class='rounded' alt='dd'> <br>
                 
                             <h2 style='color: #fff !important'>Dear $receiver_fullname,</h2>
                             <h3 style='color: #fff !important'>You were credited!</h3>  <hr>
@@ -594,7 +635,7 @@ function make_transfer($post, $user_id) {
                 <body>
                    
                         <div style='background: #452121; padding: 1rem; color: #fff !important; border-radius: 0.25rem!important; width: 500px; text-align: center!important; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; font-family: sans-serif;'>
-                            <img src='https://royalunionpro.com/img/logo/Logo@2x.png' width='150' class='rounded' alt='dd'> <br>
+                            <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' width='150' class='rounded' alt='dd'> <br>
                 
                             <h2 style='color: #fff !important'>Dear $userName,</h2>
                             <h3 style='color: #fff !important'>Your transaction failed</h3> 

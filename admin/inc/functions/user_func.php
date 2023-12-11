@@ -94,7 +94,7 @@ function user_register($post)
             </head>
             <body>
                 <main
-                    style='width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px;'>
+                    style='width: 100%; height: max-content; display: flex; flex-direction: column; padding: 10px;'>
             
                     <section
                         style='width: 50rem; background-color: #f9fafb; border-width: 4px; display: flex; flex-direction: column; height: max-content; border-radius: 1rem; border-color: white; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important'>

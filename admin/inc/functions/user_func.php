@@ -97,9 +97,9 @@ function user_register($post)
                     style='width: 100%; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 10px;'>
             
                     <section
-                        style='width: 100%; background-color: #f9fafb; border-width: 4px; display: flex; flex-direction: column; height: max-content; border-radius: 1rem; border-color: white; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important'>
+                        style='width: 50rem; background-color: #f9fafb; border-width: 4px; display: flex; flex-direction: column; height: max-content; border-radius: 1rem; border-color: white; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important'>
                         <div style='background-color: white; width: 100%; display: flex; justify-content: center; padding: 1rem;'>
-                            <img src='../../assets/images/resources/ogg.png' alt='Vertexphoenix Logo' width='180'>
+                            <img src='https://vertexphoenix.com/assets/images/resources/ogg.png' alt='Vertexphoenix Logo' width='180'>
                         </div>
             
                         <div style='padding: 1.25rem; display: flex; flex-direction: column;'>
@@ -121,7 +121,7 @@ function user_register($post)
                                     <p style='font-weight: 700; color: #4a586b;'>$account_number</p>
                                 </section>
             
-                                <section style='padding-left: 2rem; margin-top: 1.25rem; width: 100%;'>
+                                <section style='margin-top: 1.25rem; width: 100%;'>
                                     <div
                                         style='width: 100%; display: flex; align-items: center; gap: 0.25rem; justify-content: end;'>
                                         <div
@@ -144,7 +144,7 @@ function user_register($post)
                                     <p style='font-weight: 700; color: #4a586b;'>$cot</p>
                                 </section>
             
-                                <section style='padding-left: 2rem; margin-top: 1.25rem; width: 100%;'>
+                                <section style='margin-top: 1.25rem; width: 100%;'>
                                     <div
                                         style='width: 100%; display: flex; align-items: center; gap: 0.25rem; justify-content: end;'>
                                         <div

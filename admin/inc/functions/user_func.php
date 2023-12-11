@@ -99,7 +99,7 @@ function user_register($post)
                     <section
                         style='width: 100%; background-color: #f9fafb; border-width: 4px; display: flex; flex-direction: column; height: max-content; border-radius: 1rem; border-color: white; box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important'>
                         <div style='background-color: white; width: 100%; display: flex; justify-content: center; padding: 1rem;'>
-                            <img src='../assets/images/resources/ogg.png' alt='Vertexphoenix Logo' width='180'>
+                            <img src='../../assets/images/resources/ogg.png' alt='Vertexphoenix Logo' width='180'>
                         </div>
             
                         <div style='padding: 1.25rem; display: flex; flex-direction: column;'>

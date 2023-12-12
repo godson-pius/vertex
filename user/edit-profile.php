@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
                                         <img class="img-avatar img-avatar96 img-avatar-thumb" src="../admin/assets/media/avatars/avatar10.jpg" alt="">
                                     <?php } else { ?>
                                         <!-- <img class="" src="../media/users/<?= $profile_pic; ?>" alt=""> -->
-                                        <div class="img-avatar img-avatar96 img-avatar-thumb" style="background-image: url('../img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center;"></div>
+                                        <div class="img-avatar img-avatar96 img-avatar-thumb" style="background-image: url('img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center;"></div>
                                     <?php } ?>
                                 </a>
                                 <h1 class="font-w700 my-2 text-white"><?= $fullname; ?></h1>

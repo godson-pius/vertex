@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     if (isset($_SESSION['user'])) {
         $id = $_SESSION['user'];
     }
-    $response = credit_user_account($_POST);
+    // $response = credit_user_account($_POST);
     if ($response === true) {
         echo "<script>alert('Account have been credited!')</script>";
     } else {

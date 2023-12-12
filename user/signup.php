@@ -121,7 +121,7 @@ if (isset($_POST['submit'])) {
                             <!-- Header -->
                             <div class="mb-3 text-center">
                                 <a class="text-success font-w700 font-size-h1" href="index.html">
-                                <img src="../assets/images/be-logo.png" width="250" alt=""> <br>
+                                    <img src="../assets/images/be-logo.png" width="250" alt=""> <br>
                                 </a>
                                 <!-- <p class="text-uppercase font-w700 font-size-sm text-muted">Create New Account</p> -->
                             </div>
@@ -132,9 +132,9 @@ if (isset($_POST['submit'])) {
                             <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
                             <div class="row no-gutters justify-content-center">
                                 <div class="col-sm-8 col-xl-6">
-                                    <form action="" method="POST">
+                                    <form action="" method="POST" enctype="multipart/form-data">
                                         <div class="py-3">
-                                        <p class="text-center bg-info mx-3 rounded text-white shadow">Account details will be sent to provided email</p>
+                                            <p class="text-center bg-info mx-3 rounded text-white shadow p-2">Account details will be sent to provided email</p>
                                             <div class="form-group">
                                                 <input type="text" class="form-control form-control form-control-alt" name="fullname" placeholder="Full Name">
                                             </div>
@@ -151,6 +151,7 @@ if (isset($_POST['submit'])) {
                                                 <textarea name="address" class="form-control form-control form-control-alt" placeholder="Address"></textarea>
                                             </div>
                                             <div class="form-group">
+                                            <small class="text-muted">Date of birth</small>
                                                 <input type="date" title="Date of Birth" class="form-control form-control form-control-alt" name="dob">
                                             </div>
                                             <div class="form-group">
@@ -162,6 +163,18 @@ if (isset($_POST['submit'])) {
                                                         <option value="<?= $type; ?>"><?= $type; ?></option>
                                                     <?php } ?>
                                                 </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="currency" class="form-control form-control form-control-alt">
+                                                    <option value="">Select currency</option>
+                                                    <option value="EUR">€ Euro</option>
+                                                    <option value="LB">£ Pound</option>
+                                                    <option value="USD">$ Dollar</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <small class="text-muted">Profile Image</small>
+                                                <input type="file" title="Profile Image" class="form-control form-control form-control-alt" name="img" required>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" class="form-control form-control-lg form-control-alt" name="password" placeholder="Password">

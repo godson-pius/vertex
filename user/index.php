@@ -12,6 +12,17 @@ $total_income = fetch_transactions(0, $user_id);
 foreach ($total_income as $income) {
 }
 
+if ($currency == 'USD') {
+    $currency_text = "USD";
+    $currency_symbol = "$";
+} else if ($currency == 'EUR') {
+    $currency_text = "EUR";
+    $currency_symbol = "€";
+} else {
+    $currency_text = "LB";
+    $currency_symbol = "£";
+}
+
 ?>
 <!-- END Header -->
 
@@ -59,19 +70,19 @@ foreach ($total_income as $income) {
                 <div class="row text-center">
                     <div class="col-md-4 py-3">
                         <div class="font-size-h1 font-w300 text-black mb-1">
-                            USD $<?= number_format($acc_balance); ?>
+                            <?= $currency_text . " " . $currency_symbol . number_format($acc_balance); ?>
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Available Balance</a>
                     </div>
                     <div class="col-md-4 py-3">
                         <div class="font-size-h1 font-w300 text-success mb-1">
-                            USD $<?= number_format($income['total']); ?>
+                            <?= $currency_text . " " . $currency_symbol . number_format($income['total']); ?>
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Current Balance</a>
                     </div>
                     <div class="col-md-4 py-3">
                         <div class="font-size-h1 font-w300 text-danger mb-1">
-                            USD -$<?= number_format($transfer['total']); ?>
+                            <?= $currency_text . " -" . $currency_symbol . number_format($transfer['total']); ?>
                         </div>
                         <a class="link-fx font-size-sm font-w700 text-uppercase text-muted" href="javascript:void(0)">Recent Transfer</a>
                     </div>
@@ -189,7 +200,7 @@ foreach ($total_income as $income) {
                                     <span class="text-default"><?= $account['acc_number']; ?></span>
                                 </p>
                                 <p class="text-muted mb-0">
-                                    USD $<?= $account['acc_balance']; ?>
+                                    <?= $currency_text . " " . $currency_symbol . $account['acc_balance']; ?>
                                 </p>
                             </div>
                             <div class="ml-3">
@@ -231,7 +242,7 @@ foreach ($total_income as $income) {
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                         <div>
                             <p class="font-size-lg font-w600 mb-0">
-                                <?= $symbol . $trans['amount']; ?> USD
+                                <?= $symbol . $trans['amount'] . " " . $currency_text; ?>
                             </p>
                             <p class="text-muted mb-0">
                                 <?= $recipent['acc_number']; ?> (<?= $recipent['username']; ?>)

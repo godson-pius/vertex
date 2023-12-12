@@ -206,7 +206,7 @@ if ($title == "transfer" && $access == 0) {
                             <img class="img-avatar" src="../admin/assets/media/avatars/avatar10.jpg" alt="">
                         <?php } else { ?>
                             <!-- <img class="" src="../media/users/<?= $profile_pic; ?>" alt=""> -->
-                            <div class="img-avatar" style="background-image: url('../img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center;"></div>
+                            <div class="img-avatar" style="background-image: url('img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center;"></div>
                         <?php } ?>
                         <div class="mt-3 font-w600"><?= $fullname; ?></div>
                         <a class="link-fx text-muted" href="javascript:void(0)"><?= $acc_number; ?></a>
@@ -224,7 +224,9 @@ if ($title == "transfer" && $access == 0) {
                             </a>
                         </li>
                         <li class="nav-main-heading">Manage</li>
-                        <li class="nav-main-item">
+                        <?php 
+                            if ($access != 0) { ?>
+                            <li class="nav-main-item">
                             <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                 <i class="nav-main-link-icon fa fa-piggy-bank"></i>
                                 <span class="nav-main-link-name">Accounts</span>
@@ -239,6 +241,7 @@ if ($title == "transfer" && $access == 0) {
                                 </li>
                             </ul>
                         </li>
+                        <?php } ?>
                         <li class="nav-main-item">
                             <a class="nav-main-link nav-main-link-submenu <?php if ($title == 'transactions') : echo 'active'; endif; ?>" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                 <i class="nav-main-link-icon fa fa-money-check"></i>
@@ -247,16 +250,16 @@ if ($title == "transfer" && $access == 0) {
                             <ul class="nav-main-submenu">
                                 <li class="nav-main-item">
                                     <a class="nav-main-link" href="transactions">
-                                        <span class="nav-main-link-name">Approved</span>
+                                        <span class="nav-main-link-name">View Transactions</span>
                                         <span class="nav-main-link-badge badge badge-pill badge-success"><?= getTotalAnd("transactions", "approved", 1, "user_id", $user_id); ?></span>
                                     </a>
                                 </li>
-                                <li class="nav-main-item">
+                                <!-- <li class="nav-main-item">
                                     <a class="nav-main-link" href="pending">
                                         <span class="nav-main-link-name">Pending</span>
                                         <span class="nav-main-link-badge badge badge-pill badge-warning"><?= getTotalAnd("transactions", "approved", 0, "user_id", $user_id); ?></span>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
 
@@ -509,7 +512,7 @@ if ($title == "transfer" && $access == 0) {
                                 <img class="img-avatar" src="../admin/assets/media/avatars/avatar10.jpg" alt="">
                             <?php } else { ?>
                                 <!-- <img class="" src="../media/users/<?= $profile_pic; ?>" alt=""> -->
-                                <div class="img-avatar" style="background-image: url('../media/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center;"></div>
+                                <div class="img-avatar" style="background-image: url('img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center;"></div>
                             <?php } ?>
                                 <div class="pt-2">
                                     <a class="text-white font-w600" href="edit-profile"><?= $fullname; ?></a>

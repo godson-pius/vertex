@@ -118,23 +118,23 @@ function AddAdmin($post) {
 }
 
 
-function credit_user_account($post) {
-    extract($post);
+function credit_user_account($acc_number, $amount) {
+    // extract($post);
     $err_flag = false;
     $errors = [];
 
-    if (!empty($recipent)) {
-        $acc_number = sanitize($recipent);
-    } else {
-        $errors[] = "Enter account number!";
-    }
+    // if (!empty($recipent)) {
+    //     $acc_number = sanitize($recipent);
+    // } else {
+    //     $errors[] = "Enter account number!";
+    // }
 
-    if (!empty($amount)) {
-        $amount = sanitize($amount);
-    } else {
-        $err_flag = true;
-        $errors[] = "Amount is empty";
-    }
+    // if (!empty($amount)) {
+    //     $amount = sanitize($amount);
+    // } else {
+    //     $err_flag = true;
+    //     $errors[] = "Amount is empty";
+    // }
 
     if ($err_flag === false) {
         $ql = "SELECT * FROM users WHERE acc_number = $acc_number";

@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         // sleep(7);
         $status = true;
         // echo "<script>setTimeout(() => {alert('Transaction Successful')}, 10000)</script>";
-        echo "<script>setTimeout(() => {window.location.href = 'pending'}, 10000)</script>";
+        echo "<script>setTimeout(() => {window.location.href = 'index'}, 10000)</script>";
     } else {
         $errors = $response;
         if (is_array($errors)) {
@@ -28,6 +28,17 @@ if (isset($_POST['submit'])) {
             echo "<script>alert('$errors')</script>";
         }
     }
+}
+
+if ($currency == 'USD') {
+    $currency_text = "USD";
+    $currency_symbol = "$";
+} else if ($currency == 'EUR') {
+    $currency_text = "EUR";
+    $currency_symbol = "€";
+} else {
+    $currency_text = "LB";
+    $currency_symbol = "£";
 }
 
 ?>
@@ -73,7 +84,7 @@ if (isset($_POST['submit'])) {
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fa fa-dollar-sign"></i>
+                                    <span><b><?= $currency_symbol; ?></b></span>
                                 </span>
                             </div>
                             <input type="text" class="form-control" name="amount" placeholder="Amount">

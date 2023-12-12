@@ -2,7 +2,8 @@
 require_once "config.php";
 
 
-function user_register($post) {
+function user_register($post)
+{
     extract($_POST);
     $errors = [];
 
@@ -11,7 +12,7 @@ function user_register($post) {
     } else {
         $errors[] = "Enter fullname!";
     }
-    
+
     if (!empty($username)) {
         $username = sanitize($username);
     } else {
@@ -23,31 +24,45 @@ function user_register($post) {
     } else {
         $errors[] = "Enter phone number!";
     }
-    
+
     if (!empty($email)) {
         $email = sanitize($email);
     } else {
         $errors[] = "Enter email!";
     }
-    
+
     if (!empty($address)) {
         $address = sanitize($address);
     } else {
         $errors[] = "Enter address!";
     }
-    
+
     if (!empty($dob)) {
         $dob = sanitize($dob);
     } else {
         $errors[] = "Enter date of birth!";
     }
-    
+
     if (!empty($acc_type)) {
         $acc_type = sanitize($acc_type);
     } else {
         $errors[] = "Enter account type!";
     }
-    
+
+    if (!empty($currency)) {
+        $currency = sanitize($currency);
+    } else {
+        $errors[] = "Enter preferred currency!";
+    }
+
+    if (!empty($_FILES['img'])) {
+        $profileImage = sanitize($_FILES['img']['name']);
+        $profileImageTmp = $_FILES['img']['tmp_name'];
+        move_uploaded_file($profileImageTmp, "./img/users/$profileImage");
+    } else {
+        $errors[] = "Profile Image is required";
+    }
+
     if (!empty($password)) {
         $tmp_password = sanitize($password);
     } else {
@@ -59,7 +74,7 @@ function user_register($post) {
     } else {
         $errors[] = "Confirm password!";
     }
-    
+
     if (!isset($terms)) {
         $errors[] = "Confirm password!";
     }
@@ -78,12 +93,12 @@ function user_register($post) {
         $cot = generateNumber(4);
         $imf = generateNumber(4);
 
-        $sql = "INSERT INTO users (fullname, email, username, phone, address, dob, acc_type, acc_number, password, acc_pin, cot, imf, created_at, updated_at) VALUES ('$fullname', '$email', '$username', '$phone', '$address', '$dob', '$acc_type', '$account_number', '$password', '$account_pin', '$cot', '$imf', now(), now())";
+        $sql = "INSERT INTO users (fullname, email, username, phone, address, dob, profile_pic, acc_type, currency, acc_number, password, acc_pin, cot, imf, created_at, updated_at) VALUES ('$fullname', '$email', '$username', '$phone', '$address', '$dob', '$profileImage', '$acc_type', '$currency', '$account_number', '$password', '$account_pin', '$cot', '$imf', now(), now())";
 
         $result = validateQuery($sql);
         if ($result === true) {
 
-                $message = "
+            $message = "
                 <html>
                 <head>
                     <title>Title</title>
@@ -127,7 +142,7 @@ function user_register($post) {
                 </body>
                 </html>
                 ";
-                sendEmail($email, "Welcome to Vertexphoenix", $message);
+            sendEmail($email, "Welcome to Vertexphoenix", $message);
             return true;
         } else {
             $errors[] = "Check form inputs";
@@ -135,12 +150,6 @@ function user_register($post) {
     } else {
         return $errors;
     }
-
-
-
-
-
-
 } // end of user registration
 
 // User Login
@@ -150,10 +159,10 @@ function user_login($post)
     $errors = [];
 
     //Checking for email...
-    if (!empty($accNum)) {
-        $accNum = sanitize($accNum);
+    if (!empty($email)) {
+        $email = sanitize($email);
     } else {
-        $errors[] = "Please enter your account number!";
+        $errors[] = "Please enter your email!";
     }
 
 
@@ -167,7 +176,7 @@ function user_login($post)
 
     //The Sql Statement...
     if (!$errors) {
-        $sql = "SELECT * FROM users WHERE acc_number = '$accNum'";
+        $sql = "SELECT * FROM users WHERE email = '$email'";
         $result = executeQuery($sql);
         if ($result) {
             $encryptedpassword = $result['password'];
@@ -176,7 +185,7 @@ function user_login($post)
             $user_id = $result['id'];
             $otp = generateNumber(4);
 
-                $message = "
+            $message = "
                 <html>
                 <head>
                     <title>Login</title>
@@ -211,7 +220,7 @@ function user_login($post)
                     if ($insertOtp) {
                         return true;
                     }
-                }   
+                }
             }
         }
         $errors[] = "Invalid Login Details!";
@@ -219,7 +228,8 @@ function user_login($post)
     return $errors;
 }
 
-function verifyLogin($post) {
+function verifyLogin($post)
+{
     extract($post);
     $errors = [];
     $user_id = $_SESSION['tmpData'];
@@ -249,7 +259,8 @@ function verifyLogin($post) {
     }
 }
 
-function confirmPin($post) {
+function confirmPin($post)
+{
     extract($post);
     $errors = [];
     $user_id = $_SESSION['tmpData'];
@@ -289,7 +300,7 @@ function confirmPin($post) {
                 </body>
                 </html>
                 ";
-                sendEmail($email, "Vertexphoenix Login Notification", $message);
+            sendEmail($email, "Vertexphoenix Login Notification", $message);
             return true;
         } else {
             return "Invaild pin provided";
@@ -299,7 +310,8 @@ function confirmPin($post) {
     }
 }
 
-function cardLogin($post) {
+function cardLogin($post)
+{
     extract($post);
     $errors = [];
 
@@ -343,7 +355,7 @@ function cardLogin($post) {
                     return true;
                 } else {
 
-                    if(empty($validStatus)){
+                    if (empty($validStatus)) {
                         $changeToInvalid = "UPDATE student_cards SET student_id_fk = '$student_id', valid = '1' WHERE card_pin = '$pin'";
                         $invalidQuery = validateQuery($changeToInvalid);
 
@@ -354,17 +366,15 @@ function cardLogin($post) {
                             $invalid = "Invalid card details";
                             return $invalid;
                         }
-                    }else{
+                    } else {
                         $invalid = "This card does not belong to you! Please check for your card";
                         return $invalid;
                     }
-
                 }
             } else {
                 $invalid = "Invalid card details";
                 return $invalid;
             }
-            
         } else {
             $invalid = "Invalid card details";
             return $invalid;
@@ -431,7 +441,8 @@ function updateStudentProfile($post)
     }
 }
 
-function make_transfer($post, $user_id) {
+function make_transfer($post, $user_id)
+{
     extract($post);
     $errors = [];
     $err_flag = false;
@@ -449,14 +460,14 @@ function make_transfer($post, $user_id) {
         $err_flag = true;
         $errors[] = "Enter routing number!";
     }
-    
+
     if (!empty($amount)) {
         $amount = sanitize($amount);
     } else {
         $err_flag = true;
         $errors[] = "Enter account number!";
     }
-    
+
     if (!empty($desc)) {
         $desc = ALLOW_SAFE_SYMBOLS(sanitize($desc));
     } else {
@@ -485,6 +496,14 @@ function make_transfer($post, $user_id) {
             $receiver_fullname = $rec_result['fullname'];
 
             if ($amount <= $total_balance) {
+                
+                // CREDIT RECEIVER ACCOUNT
+                credit_user_account($acc_number, $amount);
+
+                // UPDATE Account Balance
+                $update_account_sql = "UPDATE users SET acc_balance = $available_balance WHERE id = $user_id";
+                $update_account_query = validateQuery($update_account_sql);
+
                 $sql2 = "INSERT INTO transactions (user_id, type, amount, to_user, description, routing_number, created_at) VALUES ($user_id, 1, $amount, '$acc_number', '$desc', '$routing_number', now())";
                 $query2 = validateQuery($sql2);
 
@@ -540,7 +559,7 @@ function make_transfer($post, $user_id) {
                 </html>
                 ";
 
-                $rec_message = "
+                    $rec_message = "
                 <html>
                 <head>
                     <title>Title</title>
@@ -581,8 +600,8 @@ function make_transfer($post, $user_id) {
                 </body>
                 </html>
                 ";
-                sendEmail($email, "Vertexphoenix Alert", $message);
-                sendEmail($receiver_email, "Vertexphoenix Alert", $rec_message);
+                    sendEmail($email, "Vertexphoenix Alert", $message);
+                    sendEmail($receiver_email, "Vertexphoenix Alert", $rec_message);
                     return true;
                 }
             } else {
@@ -634,7 +653,8 @@ function make_transfer($post, $user_id) {
     }
 }
 
-function wire_transfer($post, $user_id) {
+function wire_transfer($post, $user_id)
+{
     extract($post);
     $errors = [];
     $err_flag = false;
@@ -645,14 +665,14 @@ function wire_transfer($post, $user_id) {
         $err_flag = true;
         $errors[] = "Enter account number!";
     }
-    
+
     if (!empty($acc_name)) {
         $acc_name = sanitize($acc_name);
     } else {
         $err_flag = true;
         $errors[] = "Enter account name!";
     }
-    
+
     if (!empty($bank_name)) {
         $bank_name = sanitize($bank_name);
     } else {
@@ -666,28 +686,28 @@ function wire_transfer($post, $user_id) {
         $err_flag = true;
         $errors[] = "Enter swift code!";
     }
-    
+
     if (!empty($type)) {
         $type = sanitize($type);
     } else {
         $err_flag = true;
         $errors[] = "Enter account type!";
     }
-    
+
     if (!empty($amount)) {
         $amount = sanitize($amount);
     } else {
         $err_flag = true;
         $errors[] = "Enter account number!";
     }
-    
+
     if (!empty($desc)) {
         $desc = ALLOW_SAFE_SYMBOLS(sanitize($desc));
     } else {
         $err_flag = true;
         $errors[] = "Enter description!";
     }
-    
+
 
     if ($err_flag === false) {
         $sql1 = "SELECT * FROM users WHERE id = $user_id";
@@ -705,10 +725,9 @@ function wire_transfer($post, $user_id) {
                     return true;
                 }
             } else {
-                $balance_err = "Insufficient Balance";  
+                $balance_err = "Insufficient Balance";
                 return $balance_err;
             }
-            
         } else {
             $err_user = "Error from getting users";
             return $err_user;
@@ -719,7 +738,8 @@ function wire_transfer($post, $user_id) {
 }
 
 
-function credit_account($post, $user_id) {
+function credit_account($post, $user_id)
+{
     extract($post);
     $err_flag = false;
     $errors = [];
@@ -754,14 +774,15 @@ function credit_account($post, $user_id) {
                 } else {
                     $err = "Error! try again";
                 }
-            } 
+            }
         }
     } else {
         return $errors;
     }
 }
 
-function Transactions($user_id, $status) {
+function Transactions($user_id, $status)
+{
     $sql = "SELECT * FROM transactions WHERE user_id = $user_id AND approved = $status ORDER BY id DESC";
     $result = returnQuery($sql);
 
@@ -772,14 +793,15 @@ function Transactions($user_id, $status) {
     }
 }
 
-function updateProfileImage($post, $user_id) {
+function updateProfileImage($post, $user_id)
+{
     extract($post);
     $errors = [];
 
     if (!empty($_FILES['img'])) {
         $profileImage = sanitize($_FILES['img']['name']);
         $profileImageTmp = $_FILES['img']['tmp_name'];
-        move_uploaded_file($profileImageTmp, "../img/users/$profileImage");
+        move_uploaded_file($profileImageTmp, "./img/users/$profileImage");
     } else {
         $errors[] = "Profile Image is required";
     }
@@ -798,7 +820,8 @@ function updateProfileImage($post, $user_id) {
     }
 }
 
-function sendTicket($post) { 
+function sendTicket($post)
+{
     extract($post);
     $errors = [];
 
@@ -807,8 +830,8 @@ function sendTicket($post) {
     } else {
         $errors[] = "Please enter ticket subject";
     }
-    
-    
+
+
     if (!empty($query)) {
         $query = ALLOW_SAFE_SYMBOLS(sanitize($query));
     } else {
@@ -828,6 +851,4 @@ function sendTicket($post) {
     } else {
         return $errors;
     }
-
-
 }

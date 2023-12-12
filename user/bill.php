@@ -1,6 +1,6 @@
 <?php
 require_once '../admin/inc/functions/config.php';
-$title = "bill";
+$title = "transfer";
 require_once 'inc/header.php';
 
 
@@ -28,6 +28,17 @@ if (isset($_POST['submit'])) {
 
 if (isset($_GET['bill'])) {
     $title = $_GET['bill'];   
+}
+
+if ($currency == 'USD') {
+    $currency_text = "USD";
+    $currency_symbol = "$";
+} else if ($currency == 'EUR') {
+    $currency_text = "EUR";
+    $currency_symbol = "€";
+} else {
+    $currency_text = "LB";
+    $currency_symbol = "£";
 }
 
 
@@ -131,7 +142,7 @@ if (isset($_GET['bill'])) {
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
-                                    <i class="fa fa-dollar-sign"></i>
+                                    <span><b><?= $currency_symbol; ?></b></span>
                                 </span>
                             </div>
                             <input type="text" class="form-control" name="amount" placeholder="Amount">

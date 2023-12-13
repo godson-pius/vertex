@@ -47,9 +47,15 @@ if ($currency == 'USD') {
                 </h2>
             </div>
             <div class="col-lg-6 placeholder-glow">
-                <h2 class="content-heading">
+                <h2 class="content-heading" style="display: flex; align-items: center; gap: 5px;">
                     <?php if ($access == 1) { ?>
-                        <i class="fa fa-user-circle text-muted mr-1"></i> Account Status: <b class="text-success">Active</b>
+                        <?php if ($profile_pic == null) { ?>
+                            <i class="fa fa-user-circle text-muted mr-1"></i>
+                        <?php } else { ?>
+                            <!-- <img class="" src="../media/users/<?= $profile_pic; ?>" alt=""> -->
+                            <div style="background-image: url('img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center; width: 20px; height: 20px; border-radius: 100px;"></div>
+                        <?php } ?>
+                        Account Status: <b class="text-success">Active</b>
                     <?php } else { ?>
                         <i class="fa fa-user-circle text-muted mr-1"></i> Account Status: <b class="text-danger">Disabled</b>
                     <?php } ?>

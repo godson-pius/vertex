@@ -218,32 +218,34 @@ if ($title == "transfer" && $access == 0) {
                 <div class="content-side">
                     <ul class="nav-main">
                         <li class="nav-main-item">
-                            <a class="nav-main-link <?php if ($title == 'User Dashboard') : echo 'active'; endif; ?>" href="./">
+                            <a class="nav-main-link <?php if ($title == 'User Dashboard') : echo 'active';
+                                                    endif; ?>" href="./">
                                 <i class="nav-main-link-icon fa fa-rocket"></i>
                                 <span class="nav-main-link-name">Overview</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Manage</li>
-                        <?php 
-                            if ($access != 0) { ?>
+                        <?php
+                        if ($access != 0) { ?>
                             <li class="nav-main-item">
-                            <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
-                                <i class="nav-main-link-icon fa fa-piggy-bank"></i>
-                                <span class="nav-main-link-name">Accounts</span>
-                            </a>
-                            <ul class="nav-main-submenu">
-                                
-                                <li class="nav-main-item">
-                                    <a class="nav-main-link" href="signup.php">
-                                        <i class="nav-main-link-icon fa fa-plus-circle"></i>
-                                        <span class="nav-main-link-name">New Account</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                                    <i class="nav-main-link-icon fa fa-piggy-bank"></i>
+                                    <span class="nav-main-link-name">Accounts</span>
+                                </a>
+                                <ul class="nav-main-submenu">
+
+                                    <li class="nav-main-item">
+                                        <a class="nav-main-link" href="signup.php">
+                                            <i class="nav-main-link-icon fa fa-plus-circle"></i>
+                                            <span class="nav-main-link-name">New Account</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         <?php } ?>
                         <li class="nav-main-item">
-                            <a class="nav-main-link nav-main-link-submenu <?php if ($title == 'transactions') : echo 'active'; endif; ?>" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                            <a class="nav-main-link nav-main-link-submenu <?php if ($title == 'transactions') : echo 'active';
+                                                                            endif; ?>" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                 <i class="nav-main-link-icon fa fa-money-check"></i>
                                 <span class="nav-main-link-name">Transactions</span>
                             </a>
@@ -264,7 +266,8 @@ if ($title == "transfer" && $access == 0) {
                         </li>
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link nav-main-link-submenu <?php if ($title == 'transfer') : echo 'active'; endif; ?>" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                            <a class="nav-main-link nav-main-link-submenu <?php if ($title == 'transfer') : echo 'active';
+                                                                            endif; ?>" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                 <i class="nav-main-link-icon fa fa-money-bill-wave-alt"></i>
                                 <span class="nav-main-link-name">Transfers</span>
                             </a>
@@ -299,7 +302,8 @@ if ($title == "transfer" && $access == 0) {
                         </li>
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link nav-main-link-submenu <?php if ($title == 'bill') : echo 'active'; endif; ?>" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                            <a class="nav-main-link nav-main-link-submenu <?php if ($title == 'bill') : echo 'active';
+                                                                            endif; ?>" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
                                 <i class="nav-main-link-icon fa fa-money-bill"></i>
                                 <span class="nav-main-link-name">Bill Payments</span>
                             </a>
@@ -380,7 +384,8 @@ if ($title == "transfer" && $access == 0) {
                         <li class="nav-main-heading">Personal</li>
 
                         <li class="nav-main-item">
-                            <a class="nav-main-link <?php if ($title == 'ticket') : echo 'active'; endif; ?>" href="ticket">
+                            <a class="nav-main-link <?php if ($title == 'ticket') : echo 'active';
+                                                    endif; ?>" href="ticket">
                                 <i class="nav-main-link-icon fa fa-edit"></i>
                                 <span class="nav-main-link-name">Create Ticket</span>
                             </a>
@@ -392,9 +397,10 @@ if ($title == "transfer" && $access == 0) {
                                 <span class="nav-main-link-badge badge badge-pill badge-success"><?= getTotalAnd("tickets", "status", 1, "sender_acc", $acc_number); ?></span>
                             </a>
                         </li>
-                        
+
                         <li class="nav-main-item">
-                            <a class="nav-main-link <?php if ($title == 'profile') : echo 'active'; endif; ?>" href="edit-profile">
+                            <a class="nav-main-link <?php if ($title == 'profile') : echo 'active';
+                                                    endif; ?>" href="edit-profile">
                                 <i class="nav-main-link-icon fa fa-user-circle"></i>
                                 <span class="nav-main-link-name">Profile</span>
                             </a>
@@ -503,17 +509,22 @@ if ($title == "transfer" && $access == 0) {
                     <!-- User Dropdown -->
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn btn-dual" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="far fa-fw fa-user-circle"></i>
+                            <?php if ($profile_pic == null) { ?>
+                               <i class="far fa-fw fa-user-circle"></i>
+                            <?php } else { ?>
+                                <!-- <img class="" src="../media/users/<?= $profile_pic; ?>" alt=""> -->
+                                <div style="background-image: url('img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center; width: 20px; height: 20px; border-radius: 100px;"></div>
+                            <?php } ?>
                             <i class="fa fa-fw fa-angle-down ml-1 d-none d-sm-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="page-header-user-dropdown">
                             <div class="bg-primary-darker rounded-top font-w600 text-white text-center p-3">
-                            <?php if ($profile_pic == null) { ?>
-                                <img class="img-avatar" src="../admin/assets/media/avatars/avatar10.jpg" alt="">
-                            <?php } else { ?>
-                                <!-- <img class="" src="../media/users/<?= $profile_pic; ?>" alt=""> -->
-                                <div class="img-avatar" style="background-image: url('img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center;"></div>
-                            <?php } ?>
+                                <?php if ($profile_pic == null) { ?>
+                                    <img class="img-avatar" src="../admin/assets/media/avatars/avatar10.jpg" alt="">
+                                <?php } else { ?>
+                                    <!-- <img class="" src="../media/users/<?= $profile_pic; ?>" alt=""> -->
+                                    <div class="img-avatar" style="background-image: url('img/users/<?= $profile_pic; ?>'); background-size: cover; background-position: center;"></div>
+                                <?php } ?>
                                 <div class="pt-2">
                                     <a class="text-white font-w600" href="edit-profile"><?= $fullname; ?></a>
                                 </div>

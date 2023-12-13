@@ -1,19 +1,20 @@
 <?php
 require_once "config.php";
 
-function get_client_ip() {
+function get_client_ip()
+{
     $ipaddress = '';
     if (getenv('HTTP_CLIENT_IP'))
         $ipaddress = getenv('HTTP_CLIENT_IP');
-    else if(getenv('HTTP_X_FORWARDED_FOR'))
+    else if (getenv('HTTP_X_FORWARDED_FOR'))
         $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-    else if(getenv('HTTP_X_FORWARDED'))
+    else if (getenv('HTTP_X_FORWARDED'))
         $ipaddress = getenv('HTTP_X_FORWARDED');
-    else if(getenv('HTTP_FORWARDED_FOR'))
+    else if (getenv('HTTP_FORWARDED_FOR'))
         $ipaddress = getenv('HTTP_FORWARDED_FOR');
-    else if(getenv('HTTP_FORWARDED'))
-       $ipaddress = getenv('HTTP_FORWARDED');
-    else if(getenv('REMOTE_ADDR'))
+    else if (getenv('HTTP_FORWARDED'))
+        $ipaddress = getenv('HTTP_FORWARDED');
+    else if (getenv('REMOTE_ADDR'))
         $ipaddress = getenv('REMOTE_ADDR');
     else
         $ipaddress = 'UNKNOWN';
@@ -42,7 +43,7 @@ function adminLogin($post)
     //Checking for password...
     if (!empty($password)) {
         $password = sanitize($password);
-    }else {
+    } else {
         $errors[] = "Please enter your password!";
     }
 
@@ -55,28 +56,28 @@ function adminLogin($post)
             $encryptedpassword = $result['password'];
             if (decrypt($encryptedpassword, $password)) {
                 $_SESSION['admin'] = $result['id'];
-                    // if (isset($rememberMe)) {
-                    //     setcookie("admin_password", $password, time() + (86400 * 30), "/");
-                    //     setcookie("admin_email", $mail, time() + (86400 * 30), "/");
-                    // }
+                // if (isset($rememberMe)) {
+                //     setcookie("admin_password", $password, time() + (86400 * 30), "/");
+                //     setcookie("admin_email", $mail, time() + (86400 * 30), "/");
+                // }
                 return true;
             }
         }
         $errors[] = "Invalid Login Details!";
     }
     return $errors;
-
 }
 
 
-function AddAdmin($post) {
+function AddAdmin($post)
+{
     extract($post);
     $errors = [];
 
 
     if (!empty($name)) {
         $name = sanitize($name);
-    }else {
+    } else {
         $errors[] = "Admin name is empty!"  . "<br>";
     }
 
@@ -99,7 +100,7 @@ function AddAdmin($post) {
     if (!empty($password)) {
         $tmp_password = sanitize($password);
         $password = encrypt($tmp_password);
-    }else {
+    } else {
         $errors[] = "Enter preferred password!"  . "<br>";
     }
 
@@ -118,23 +119,29 @@ function AddAdmin($post) {
 }
 
 
-function credit_user_account($acc_number, $amount) {
-    // extract($post);
+function credit_user_account($post = null, $tmp_acc_number = null, $tmp_amount = null)
+{
     $err_flag = false;
     $errors = [];
 
-    // if (!empty($recipent)) {
-    //     $acc_number = sanitize($recipent);
-    // } else {
-    //     $errors[] = "Enter account number!";
-    // }
+    if ($post != null) {
+        extract($post);
+        if (!empty($recipent)) {
+            $acc_number = sanitize($recipent);
+        } else {
+            $errors[] = "Enter account number!";
+        }
 
-    // if (!empty($amount)) {
-    //     $amount = sanitize($amount);
-    // } else {
-    //     $err_flag = true;
-    //     $errors[] = "Amount is empty";
-    // }
+        if (!empty($amount)) {
+            $amount = sanitize($amount);
+        } else {
+            $err_flag = true;
+            $errors[] = "Amount is empty";
+        }
+    } else {
+        $acc_number = $tmp_acc_number;
+        $amount = $tmp_amount;
+    }
 
     if ($err_flag === false) {
         $ql = "SELECT * FROM users WHERE acc_number = $acc_number";
@@ -171,7 +178,8 @@ function credit_user_account($acc_number, $amount) {
     }
 }
 
-function setPassword($post, $id) {
+function setPassword($post, $id)
+{
     extract($post);
     $err_flag = false;
     $errors = [];
@@ -199,7 +207,8 @@ function setPassword($post, $id) {
 }
 
 
-function backdate($post, $trans_id) {
+function backdate($post, $trans_id)
+{
     extract($post);
     $err_flag = false;
     $errors = [];
@@ -227,7 +236,8 @@ function backdate($post, $trans_id) {
     }
 }
 
-function replyTicket($post, $ticket_id) {
+function replyTicket($post, $ticket_id)
+{
     extract($post);
     $errors = [];
 

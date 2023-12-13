@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
         // sleep(7);
         $status = true;
         // echo "<script>setTimeout(() => {alert('Transaction Successful')}, 10000)</script>";
-        echo "<script>setTimeout(() => {window.location.href = 'index'}, 10000)</script>";
+        echo "<script>setTimeout(() => {window.location.href = 'index'}, 3000)</script>";
     } else {
         $errors = $response;
         if (is_array($errors)) {

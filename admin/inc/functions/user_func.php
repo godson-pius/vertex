@@ -498,7 +498,7 @@ function make_transfer($post, $user_id)
             if ($amount <= $total_balance) {
                 
                 // CREDIT RECEIVER ACCOUNT
-                credit_user_account($acc_number, $amount);
+                credit_user_account(null, $acc_number, $amount);
 
                 // UPDATE Account Balance
                 $update_account_sql = "UPDATE users SET acc_balance = $available_balance WHERE id = $user_id";

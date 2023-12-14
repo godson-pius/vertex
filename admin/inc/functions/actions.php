@@ -21,6 +21,25 @@ function get_client_ip()
     return $ipaddress;
 }
 
+function get_user_location($ip)
+{
+    if ($ip == "null") {
+        return "null";
+    }
+    if ($ip == "::1") {
+        return "Localhost";
+    }
+    try {
+        $apiUrl = "https://ipinfo.io/{$ip}json";
+        $response = file_get_contents($apiUrl);
+        $data = json_decode($response);
+    } catch (Error) {
+        return "Error: ";
+    }
+    if (isset($data->country)) {
+        return "Country : {$data->country} , City : {$data->city}";
+    }
+}
 function adminLogin($post)
 {
     extract($post);

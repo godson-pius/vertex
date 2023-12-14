@@ -65,7 +65,7 @@ if ($currency == 'USD') {
                                     <i class="far fa-user"></i>
                                 </span>
                             </div>
-                            <input type="text" name="recipent" onblur="getRecipent()" class="form-control" id="account_number" placeholder="Account Number">
+                            <input type="text" name="recipent" onblur="getRecipent()" class="form-control" id="account_number" placeholder="IBAN">
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@ if ($currency == 'USD') {
                                     <i class="fa fa-terminal"></i>
                                 </span>
                             </div>
-                            <input type="text" maxLength="9" name="routing_number" class="form-control" placeholder="Enter Routing number">
+                            <input type="text" maxLength="9" name="routing_number" class="form-control" placeholder="BIC">
                         </div>
                     </div>
 

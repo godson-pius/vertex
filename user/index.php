@@ -110,7 +110,7 @@ if ($currency == 'USD') {
             </div>
             <div class="col-lg-6">
                 <h2 class="content-heading">
-                    <i class="fa fa-desktop text-muted mr-1"></i> LOGGED IN FROM: <span class="text-default"><?= get_client_ip(); ?></span>
+                    <i class="fa fa-desktop text-muted mr-1"></i> LOGGED IN FROM: <span class="text-default"><?= get_user_location(get_client_ip()); ?></span>
                 </h2>
             </div>
         </div>

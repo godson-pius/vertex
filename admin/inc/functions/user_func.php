@@ -690,8 +690,9 @@ function wire_transfer($post, $user_id)
     if (!empty($type)) {
         $type = sanitize($type);
     } else {
-        $err_flag = true;
-        $errors[] = "Enter account type!";
+        $type = "off";
+        // $err_flag = true;
+        // $errors[] = "Enter account type!";
     }
 
     if (!empty($amount)) {

@@ -61,7 +61,7 @@ if ($currency == 'USD') {
                                     <i class="fa fa-address-card"></i>
                                 </span>
                             </div>
-                            <input type="text" name="recipent" onblur="getRecipent()" class="form-control" id="account_number" placeholder="Account Number">
+                            <input type="text" name="recipent" onblur="getRecipent()" class="form-control" id="account_number" placeholder="IBAN">
                         </div>
                     </div>
 
@@ -94,11 +94,11 @@ if ($currency == 'USD') {
                                     <i class="fa fa-terminal"></i>
                                 </span>
                             </div>
-                            <input type="text" name="swift_code" class="form-control" placeholder="Enter swift code">
+                            <input type="text" name="swift_code" class="form-control" placeholder="Enter BIC">
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -107,9 +107,9 @@ if ($currency == 'USD') {
                             </div>
                             <input type="text" maxLength="9" name="routing_number" class="form-control" placeholder="Enter Routing number">
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -130,7 +130,7 @@ if ($currency == 'USD') {
                             </select>
                             
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <div class="input-group">
